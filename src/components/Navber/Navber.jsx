@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import useUserContext from "../../Hooks/useUserContext";
 
 import { Button, Container, Form, Modal, Nav, Navbar } from "react-bootstrap";
+import ToggleContext from "../../context/ToggleContext";
+import useToggleContext from "../../Hooks/useToggleContext";
 
 const Navber = () => {
   const { setUserData } = useUserContext();
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
+
+  const { show, setShow } = useToggleContext();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,7 +39,7 @@ const Navber = () => {
       <Navbar expand="lg" className="bg-primary">
         <Container>
           <Navbar.Brand href="#" className="text-light fw-bold">
-            User Management App
+            Simple User Management App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
